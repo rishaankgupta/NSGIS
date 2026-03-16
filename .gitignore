@@ -1,0 +1,12 @@
+outputs/*.npy
+outputs/*.png
+outputs/*.json
+*.SAFE
+*.jp2
+__pycache__/
+*.pyc
+*.pkl
+data/X_train.npy
+data/y_train.npy
+data/X_val.npy
+data/y_val.npy
