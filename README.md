@@ -1,7 +1,7 @@
-# NSGIS - Neuro-Symbolic Geospatial Inference System
+# NSGIS â€” Neuro-Symbolic Geospatial Inference System
 
 **First TNFD-aligned nature risk prototype over Agbogbloshie, Greater Accra, Ghana**  
-Real Sentinel-2 L2A satellite data ú 10m resolution ú 90,000 cells ú February 2026
+Real Sentinel-2 L2A satellite data Â· 10m resolution Â· 90,000 cells Â· February 2026
 
 ---
 
@@ -9,7 +9,7 @@ Real Sentinel-2 L2A satellite data ú 10m resolution ú 90,000 cells ú February 20
 
 NSGIS is a working prototype that combines neural satellite image analysis 
 with symbolic industrial ecology rules to identify informal industrial 
-activity and generate TNFD LEAP-aligned nature risk disclosures - without 
+activity and generate TNFD LEAP-aligned nature risk disclosures â€” without 
 requiring any pre-labeled ground truth data.
 
 This is the first system to produce a 10-meter resolution nature risk 
@@ -21,13 +21,13 @@ Greater Accra) from real satellite data.
 - Activity classification map (7 informal industrial classes: Tannery, 
   Textile Dyeing, E-Waste, Metal/Battery Recycling, Chemical Storage, 
   Food Processing, Non-Industrial)
-- TNFD Confidence Tier Map (Tier 1-4, aligned with TNFD LEAP framework)
+- TNFD Confidence Tier Map (Tier 1â€“4, aligned with TNFD LEAP framework)
 - Nature Risk Heatmap at 10m resolution
 - JSON TNFD disclosure report with impact driver profiles
 
 ## Phase 1 Results (Real Sentinel-2 Data)
 
-- Scene: 300x300 cells = 3km x 3km over Agbogbloshie, Accra
+- Scene: 300Ã—300 cells = 3km Ã— 3km over Agbogbloshie, Accra
 - Clear cells analyzed: 89,996 of 90,000 (100% after SCL cloud masking)
 - Neuro-Symbolic F1 Macro: 0.485 vs Baseline Neural: 0.395 (+23%)
 - Expected Calibration Error: 0.022 (target: <0.08)
@@ -67,22 +67,53 @@ All outputs saved to `nsgis/outputs/`
 ## Repository Structure
 ```
 nsgis/
-ÃÄÄ data/
-³   ÃÄÄ sentinel_simulator.py    # Synthetic data generator
-³   ÀÄÄ real_data_loader.py      # Real Sentinel-2 loader  start here
-ÃÄÄ iakg/
-³   ÀÄÄ knowledge_graph.py       # Industrial Activity Knowledge Graph
-³                                  (10 rules, 7 classes, 3-valued logic)
-ÃÄÄ neural/
-³   ÀÄÄ model.py                 # Neural module + NS fusion system
-ÃÄÄ pipeline/
-³   ÃÄÄ run_pipeline.py          # Simulation pipeline
-³   ÀÄÄ run_pipeline_real.py     # Real data pipeline  run this
-ÃÄÄ viz/
-³   ÀÄÄ visualize.py             # All 6 publication figures
-ÀÄÄ outputs/                     # Generated figures and reports
+â”œâ”€â”€ data/
+â”‚   â”œâ”€â”€ sentinel_simulator.py    # Synthetic data generator
+â”‚   â””â”€â”€ real_data_loader.py      # Real Sentinel-2 loader â† start here
+â”œâ”€â”€ iakg/
+â”‚   â””â”€â”€ knowledge_graph.py       # Industrial Activity Knowledge Graph
+â”‚                                  (10 rules, 7 classes, 3-valued logic)
+â”œâ”€â”€ neural/
+â”‚   â””â”€â”€ model.py                 # Neural module + NS fusion system
+â”œâ”€â”€ pipeline/
+â”‚   â”œâ”€â”€ run_pipeline.py          # Simulation pipeline
+â”‚   â””â”€â”€ run_pipeline_real.py     # Real data pipeline â† run this
+â”œâ”€â”€ viz/
+â”‚   â””â”€â”€ visualize.py             # All 6 publication figures
+â””â”€â”€ outputs/                     # Generated figures and reports
 ```
 
 ## System Architecture
 
 Sentinel-2 + ECOSTRESS + Sentinel-1  
+â†’ Multi-sensor fusion (cross-attention)  
+â†’ Neural perception (Clay backbone)  
+â†’ [IAKG symbolic rules] + [DeepProbLog reasoner]  
+â†’ Neuro-symbolic fusion (adaptive weighting)  
+â†’ TNFD Report + Risk Heatmap
+
+## Papers
+
+**Preprint 1 (Framework):**  
+Gupta, R. (2025). Neuro-Symbolic Geospatial Intelligence: A Framework 
+for Understanding Nature-Related Risks in the Informal Global South.  
+[Link to your Authorea/SSRN preprint]
+
+**Preprint 2 (Full Architecture + Phase 1 Results):**  
+Gupta, R. (2026). Operationalizing Neuro-Symbolic Geospatial Intelligence.  
+[Link â€” add after uploading]
+
+## Phase 2 (In Progress)
+
+- Real ECOSTRESS thermal data (NASA AppEEARS â€” pending)
+- Real Sentinel-1 SAR data (Copernicus â€” pending)
+- Ground truth field survey via ISODEC partnership (Ghana)
+- Target journal: Remote Sensing of Environment
+
+## License
+
+MIT License â€” free to use, modify, and distribute with attribution.
+
+## Contact
+
+Rishaank Gupta Â· site.rishaank@gmail.com
