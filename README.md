@@ -108,7 +108,7 @@ Gupta, R. (2026). Operationalizing Neuro-Symbolic Geospatial Intelligence.
 - Real ECOSTRESS thermal data (NASA AppEEARS — pending)
 - Real Sentinel-1 SAR data (Copernicus — pending)
 - Ground truth field survey via ISODEC partnership (Ghana)
-- Target journal: Remote Sensing of Environment
+- Target journal: Nature or Remote Sensing of Environment
 
 ## License
 
