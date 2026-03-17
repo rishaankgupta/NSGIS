@@ -1,0 +1,546 @@
+{
+  "report_metadata": {
+    "system": "NSGIS v1.0",
+    "framework": "TNFD LEAP v1.0",
+    "study_site": "Agbogbloshie, Greater Accra, Ghana",
+    "data_sources": [
+      "Sentinel-2 L2A (REAL: T30NZM, 2026-02-01)",
+      "LST proxy from B11/B04 spectral index (Phase 1 \u2014 ECOSTRESS pending)",
+      "SAR proxy from B11/B08 spectral index (Phase 1 \u2014 Sentinel-1 pending)",
+      "Cloud masking via SCL bands 8,9,10,11"
+    ],
+    "grid_cells_analyzed": 90000,
+    "grid_resolution_m": 10,
+    "analysis_area_ha": 900.0,
+    "generated": "2026-03-15T00:24:03.310559",
+    "inference_method": "Neuro-Symbolic (GBM + IAKG DeepProbLog)",
+    "cloud_masked_cells": 4,
+    "clear_cells_analyzed": 89996
+  },
+  "tnfd_locate_phase": {
+    "total_cells": 90000,
+    "industrial_cells_tier1": 17971,
+    "industrial_area_tier1_ha": 179.71,
+    "tier_distribution_pct": {
+      "Tier 1": 20.0,
+      "Tier 2": 80.0,
+      "Tier 3": 0.0,
+      "Tier 4": 0.0
+    },
+    "class_distribution": {
+      "Non-Industrial": 21932,
+      "Tannery": 0,
+      "Textile Dyeing": 285,
+      "E-Waste Processing": 46437,
+      "Metal/Battery Recycling": 5659,
+      "Chemical Storage": 15687,
+      "Food/Organic Processing": 0
+    },
+    "high_risk_cells_flagged": 38944
+  },
+  "tnfd_evaluate_phase": {
+    "activity_profiles": {
+      "Textile Dyeing": {
+        "cell_count_tier1_2": 285,
+        "area_estimate_ha": 2.85,
+        "avg_confidence": 0.585,
+        "impact_drivers": [
+          "Water pollution",
+          "Chemical efflux (azo dyes)",
+          "Thermal discharge"
+        ],
+        "water_intensity": "High",
+        "pollution_type": "Synthetic dyes, fixatives",
+        "land_use_change": "Degrading"
+      },
+      "E-Waste Processing": {
+        "cell_count_tier1_2": 46437,
+        "area_estimate_ha": 464.37,
+        "avg_confidence": 0.674,
+        "impact_drivers": [
+          "Air pollution (POPs, dioxins)",
+          "Soil contamination",
+          "Thermal anomaly"
+        ],
+        "water_intensity": "Low",
+        "pollution_type": "Heavy metals, PCBs, flame retardants",
+        "land_use_change": "Severely Degrading"
+      },
+      "Metal/Battery Recycling": {
+        "cell_count_tier1_2": 5659,
+        "area_estimate_ha": 56.59,
+        "avg_confidence": 0.527,
+        "impact_drivers": [
+          "Air pollution (particulates)",
+          "Soil contamination (Pb, Cd)",
+          "Water table contamination"
+        ],
+        "water_intensity": "Moderate",
+        "pollution_type": "Lead, cadmium, sulfuric acid",
+        "land_use_change": "Degrading"
+      },
+      "Chemical Storage": {
+        "cell_count_tier1_2": 15687,
+        "area_estimate_ha": 156.87,
+        "avg_confidence": 0.961,
+        "impact_drivers": [
+          "Soil contamination",
+          "Groundwater risk",
+          "Air quality (VOCs)"
+        ],
+        "water_intensity": "Low",
+        "pollution_type": "Volatile organics, solvents",
+        "land_use_change": "Stable/Risk"
+      }
+    },
+    "aggregate_impact_drivers": [
+      "Groundwater risk",
+      "Water table contamination",
+      "Thermal anomaly",
+      "Water pollution",
+      "Air quality (VOCs)",
+      "Air pollution (POPs, dioxins)",
+      "Thermal discharge",
+      "Soil contamination",
+      "Soil contamination (Pb, Cd)",
+      "Air pollution (particulates)",
+      "Chemical efflux (azo dyes)"
+    ],
+    "water_intensity_summary": {
+      "Textile Dyeing": "High",
+      "E-Waste Processing": "Low",
+      "Metal/Battery Recycling": "Moderate",
+      "Chemical Storage": "Low"
+    }
+  },
+  "confidence_attestation": {
+    "method": "Calibrated posterior via isotonic regression + IAKG rule fusion",
+    "tier1_threshold": 0.75,
+    "tier2_threshold": 0.4,
+    "calibration_ece": "See eval_results.json",
+    "symbolic_reasoning_traces": "Available per-cell in inference output",
+    "audit_trail": "Full rule firing traces stored for all Tier 1 classifications"
+  },
+  "tier1_industrial_sample": [
+    {
+      "cell_index": 0,
+      "activity": "E-Waste Processing",
+      "confidence": 0.653,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (POPs, dioxins)",
+        "Soil contamination",
+        "Thermal anomaly"
+      ],
+      "water_intensity": "Low",
+      "pollution_type": "Heavy metals, PCBs, flame retardants",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "5": [
+          "Rule fired [0.51]: OK:B11>0.12 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-6.0 \u2227 OK:ntl>15"
+        ]
+      }
+    },
+    {
+      "cell_index": 1,
+      "activity": "E-Waste Processing",
+      "confidence": 0.653,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (POPs, dioxins)",
+        "Soil contamination",
+        "Thermal anomaly"
+      ],
+      "water_intensity": "Low",
+      "pollution_type": "Heavy metals, PCBs, flame retardants",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "5": [
+          "Rule fired [0.51]: OK:B11>0.12 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-6.0 \u2227 OK:ntl>15"
+        ]
+      }
+    },
+    {
+      "cell_index": 2,
+      "activity": "Metal/Battery Recycling",
+      "confidence": 0.529,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (particulates)",
+        "Soil contamination (Pb, Cd)",
+        "Water table contamination"
+      ],
+      "water_intensity": "Moderate",
+      "pollution_type": "Lead, cadmium, sulfuric acid",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "4": [
+          "Rule fired [0.55]: OK:B11>0.16 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-4.0 \u2227 OK:ntl>25"
+        ]
+      }
+    },
+    {
+      "cell_index": 3,
+      "activity": "Metal/Battery Recycling",
+      "confidence": 0.521,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (particulates)",
+        "Soil contamination (Pb, Cd)",
+        "Water table contamination"
+      ],
+      "water_intensity": "Moderate",
+      "pollution_type": "Lead, cadmium, sulfuric acid",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "4": [
+          "Rule fired [0.55]: OK:B11>0.16 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-4.0 \u2227 OK:ntl>25"
+        ]
+      }
+    },
+    {
+      "cell_index": 4,
+      "activity": "Metal/Battery Recycling",
+      "confidence": 0.529,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (particulates)",
+        "Soil contamination (Pb, Cd)",
+        "Water table contamination"
+      ],
+      "water_intensity": "Moderate",
+      "pollution_type": "Lead, cadmium, sulfuric acid",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "4": [
+          "Rule fired [0.55]: OK:B11>0.16 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-4.0 \u2227 OK:ntl>25"
+        ]
+      }
+    },
+    {
+      "cell_index": 5,
+      "activity": "Metal/Battery Recycling",
+      "confidence": 0.529,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (particulates)",
+        "Soil contamination (Pb, Cd)",
+        "Water table contamination"
+      ],
+      "water_intensity": "Moderate",
+      "pollution_type": "Lead, cadmium, sulfuric acid",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "4": [
+          "Rule fired [0.55]: OK:B11>0.16 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-4.0 \u2227 OK:ntl>25"
+        ]
+      }
+    },
+    {
+      "cell_index": 6,
+      "activity": "E-Waste Processing",
+      "confidence": 1.0,
+      "tier": 1,
+      "impact_drivers": [
+        "Air pollution (POPs, dioxins)",
+        "Soil contamination",
+        "Thermal anomaly"
+      ],
+      "water_intensity": "Low",
+      "pollution_type": "Heavy metals, PCBs, flame retardants",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ]
+      }
+    },
+    {
+      "cell_index": 7,
+      "activity": "E-Waste Processing",
+      "confidence": 0.653,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (POPs, dioxins)",
+        "Soil contamination",
+        "Thermal anomaly"
+      ],
+      "water_intensity": "Low",
+      "pollution_type": "Heavy metals, PCBs, flame retardants",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "5": [
+          "Rule fired [0.51]: OK:B11>0.12 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-6.0 \u2227 OK:ntl>15"
+        ]
+      }
+    },
+    {
+      "cell_index": 8,
+      "activity": "E-Waste Processing",
+      "confidence": 1.0,
+      "tier": 1,
+      "impact_drivers": [
+        "Air pollution (POPs, dioxins)",
+        "Soil contamination",
+        "Thermal anomaly"
+      ],
+      "water_intensity": "Low",
+      "pollution_type": "Heavy metals, PCBs, flame retardants",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ]
+      }
+    },
+    {
+      "cell_index": 9,
+      "activity": "Metal/Battery Recycling",
+      "confidence": 0.529,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (particulates)",
+        "Soil contamination (Pb, Cd)",
+        "Water table contamination"
+      ],
+      "water_intensity": "Moderate",
+      "pollution_type": "Lead, cadmium, sulfuric acid",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "4": [
+          "Rule fired [0.55]: OK:B11>0.16 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-4.0 \u2227 OK:ntl>25"
+        ]
+      }
+    },
+    {
+      "cell_index": 10,
+      "activity": "Metal/Battery Recycling",
+      "confidence": 0.528,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (particulates)",
+        "Soil contamination (Pb, Cd)",
+        "Water table contamination"
+      ],
+      "water_intensity": "Moderate",
+      "pollution_type": "Lead, cadmium, sulfuric acid",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "4": [
+          "Rule fired [0.55]: OK:B11>0.16 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-4.0 \u2227 OK:ntl>25"
+        ]
+      }
+    },
+    {
+      "cell_index": 11,
+      "activity": "Metal/Battery Recycling",
+      "confidence": 0.521,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (particulates)",
+        "Soil contamination (Pb, Cd)",
+        "Water table contamination"
+      ],
+      "water_intensity": "Moderate",
+      "pollution_type": "Lead, cadmium, sulfuric acid",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "4": [
+          "Rule fired [0.55]: OK:B11>0.16 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-4.0 \u2227 OK:ntl>25"
+        ]
+      }
+    },
+    {
+      "cell_index": 12,
+      "activity": "Metal/Battery Recycling",
+      "confidence": 0.521,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (particulates)",
+        "Soil contamination (Pb, Cd)",
+        "Water table contamination"
+      ],
+      "water_intensity": "Moderate",
+      "pollution_type": "Lead, cadmium, sulfuric acid",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "4": [
+          "Rule fired [0.55]: OK:B11>0.16 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-4.0 \u2227 OK:ntl>25"
+        ]
+      }
+    },
+    {
+      "cell_index": 13,
+      "activity": "Metal/Battery Recycling",
+      "confidence": 0.521,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (particulates)",
+        "Soil contamination (Pb, Cd)",
+        "Water table contamination"
+      ],
+      "water_intensity": "Moderate",
+      "pollution_type": "Lead, cadmium, sulfuric acid",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "4": [
+          "Rule fired [0.55]: OK:B11>0.16 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-4.0 \u2227 OK:ntl>25"
+        ]
+      }
+    },
+    {
+      "cell_index": 14,
+      "activity": "Metal/Battery Recycling",
+      "confidence": 0.529,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (particulates)",
+        "Soil contamination (Pb, Cd)",
+        "Water table contamination"
+      ],
+      "water_intensity": "Moderate",
+      "pollution_type": "Lead, cadmium, sulfuric acid",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "4": [
+          "Rule fired [0.55]: OK:B11>0.16 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-4.0 \u2227 OK:ntl>25"
+        ]
+      }
+    },
+    {
+      "cell_index": 15,
+      "activity": "Metal/Battery Recycling",
+      "confidence": 0.529,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (particulates)",
+        "Soil contamination (Pb, Cd)",
+        "Water table contamination"
+      ],
+      "water_intensity": "Moderate",
+      "pollution_type": "Lead, cadmium, sulfuric acid",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "4": [
+          "Rule fired [0.55]: OK:B11>0.16 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-4.0 \u2227 OK:ntl>25"
+        ]
+      }
+    },
+    {
+      "cell_index": 16,
+      "activity": "Metal/Battery Recycling",
+      "confidence": 0.529,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (particulates)",
+        "Soil contamination (Pb, Cd)",
+        "Water table contamination"
+      ],
+      "water_intensity": "Moderate",
+      "pollution_type": "Lead, cadmium, sulfuric acid",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "4": [
+          "Rule fired [0.55]: OK:B11>0.16 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-4.0 \u2227 OK:ntl>25"
+        ]
+      }
+    },
+    {
+      "cell_index": 17,
+      "activity": "E-Waste Processing",
+      "confidence": 0.653,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (POPs, dioxins)",
+        "Soil contamination",
+        "Thermal anomaly"
+      ],
+      "water_intensity": "Low",
+      "pollution_type": "Heavy metals, PCBs, flame retardants",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "5": [
+          "Rule fired [0.51]: OK:B11>0.12 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-6.0 \u2227 OK:ntl>15"
+        ]
+      }
+    },
+    {
+      "cell_index": 18,
+      "activity": "E-Waste Processing",
+      "confidence": 0.653,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (POPs, dioxins)",
+        "Soil contamination",
+        "Thermal anomaly"
+      ],
+      "water_intensity": "Low",
+      "pollution_type": "Heavy metals, PCBs, flame retardants",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "5": [
+          "Rule fired [0.51]: OK:B11>0.12 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-6.0 \u2227 OK:ntl>15"
+        ]
+      }
+    },
+    {
+      "cell_index": 19,
+      "activity": "Metal/Battery Recycling",
+      "confidence": 0.529,
+      "tier": 2,
+      "impact_drivers": [
+        "Air pollution (particulates)",
+        "Soil contamination (Pb, Cd)",
+        "Water table contamination"
+      ],
+      "water_intensity": "Moderate",
+      "pollution_type": "Lead, cadmium, sulfuric acid",
+      "reasoning": {
+        "3": [
+          "Rule fired [0.72]: OK:B11>0.16 \u2227 OK:SAR_VV>-4.0 \u2227 OK:SAR_VH>-12.0 \u2227 OK:road_dist<50"
+        ],
+        "4": [
+          "Rule fired [0.55]: OK:B11>0.16 \u2227 UNK:LST_anomaly(\u00b10.8) \u2227 OK:SAR_VV>-4.0 \u2227 OK:ntl>25"
+        ]
+      }
+    }
+  ],
+  "coverage_limitations": [
+    "Indoor industrial processes without external surface signatures not detectable",
+    "Thermal band resampled from 70m ECOSTRESS to 10m (TsHARP); introduces uncertainty",
+    "Cells classified as Tier 3 or 4 excluded from primary disclosure",
+    "Model calibrated for Accra/Dhaka spectral signatures; regional overlay needed for other cities"
+  ]
+}

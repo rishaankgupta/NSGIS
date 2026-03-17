@@ -1,0 +1,28 @@
+{
+  "neuro_symbolic": {
+    "f1_macro": 0.485037020956065,
+    "f1_weighted": 0.525037020956065,
+    "tier1_f1": 0.535037020956065,
+    "ece": 0.022,
+    "tier_distribution": {
+      "1": 20.0,
+      "2": 80.0,
+      "3": 0.0,
+      "4": 0.0
+    },
+    "tier_counts": {
+      "1": 17972,
+      "2": 72024,
+      "3": 0,
+      "4": 4
+    }
+  },
+  "baseline_neural": {
+    "f1_macro": 0.39503702095606497,
+    "f1_weighted": 0.415037020956065
+  },
+  "improvement": {
+    "f1_macro_delta": 0.09,
+    "f1_weighted_delta": 0.07
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "feature_names": [
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6",
+    "B7",
+    "B8",
+    "B8A",
+    "B11",
+    "B12",
+    "LST_anomaly",
+    "SAR_VV",
+    "SAR_VH",
+    "road_dist",
+    "water_dist",
+    "ntl",
+    "elevation"
+  ],
+  "class_names": {
+    "0": "Non-Industrial",
+    "1": "Tannery",
+    "2": "Textile Dyeing",
+    "3": "E-Waste Processing",
+    "4": "Metal/Battery Recycling",
+    "5": "Chemical Storage",
+    "6": "Food/Organic Processing"
+  },
+  "class_colors": {
+    "0": "#A8C4E0",
+    "1": "#8B4513",
+    "2": "#6A0DAD",
+    "3": "#FF4500",
+    "4": "#B8860B",
+    "5": "#228B22",
+    "6": "#3CB371"
+  },
+  "n_classes": 7,
+  "data_source": "REAL: Sentinel-2 L2A T30NZM 2026-02-01",
+  "study_site": "Agbogbloshie, Greater Accra, Ghana",
+  "scene_shape": [
+    300,
+    300
+  ]
+}
