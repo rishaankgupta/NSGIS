@@ -1,6 +1,4 @@
 outputs/*.npy
-outputs/*.png
-outputs/*.json
 *.SAFE
 *.jp2
 __pycache__/
