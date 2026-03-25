@@ -97,9 +97,11 @@ Sentinel-2 + ECOSTRESS + Sentinel-1
 **Preprint 1 (Framework):**  
 Gupta, R. (2025). Neuro-Symbolic Geospatial Intelligence: A Framework 
 for Understanding Nature-Related Risks in the Informal Global South.  
+https://www.authorea.com/users/1001242/articles/1396647-neuro-symbolic-geospatial-intelligence-a-framework-for-understanding-nature-related-risks-in-the-informal-global-south
 
 **Preprint 2 (Full Architecture + Phase 1 Results):**  
 Gupta, R. (2026). Operationalizing Neuro-Symbolic Geospatial Intelligence.  
+https://www.authorea.com/users/1001242/articles/1396039-operationalizing-neuro-symbolic-geospatial-intelligence
 
 ## Phase 2 (In Progress)
 
